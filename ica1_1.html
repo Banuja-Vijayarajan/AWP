@@ -1,0 +1,141 @@
+<!doctype html>
+<html>
+<head>
+<script src = "https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+<!-- 
+<div class="mainDiv">
+	<div class="div1">
+		<table>
+			<tr>
+				<td>1</td>
+				<td>2</td>
+			</tr>
+			<tr>
+				<td>6</td>
+				<td>7</td>
+			</tr>
+			<tr>
+				<td>11</td>
+				<td>12</td>
+			</tr>
+		</table>
+	</div>
+	
+	<div class="div2">
+		<table>
+			<tr>
+				<td>3</td>
+				<td>4</td>
+				<td>5</td>
+			</tr>
+			<tr>
+				<td>8</td>
+				<td>9</td>
+				<td>10</td>
+			</tr>
+			<tr>
+				<td>13</td>
+				<td>14</td>
+				<td>15</td>
+			</tr>
+		</table>
+	</div>
+</div>	
+ -->
+ 
+ <table>
+	<tr>
+		<td>1</td>
+		<td>2</td>
+		<td class="aisle"></td>
+		<td>3</td>
+		<td>4</td>
+		<td>5</td>
+	</tr>
+	<tr>
+		<td>6</td>
+		<td>7</td>
+		<td class="aisle"></td>
+		<td>8</td>
+		<td>9</td>
+		<td>10</td>
+	</tr>
+	<tr>
+		<td>11</td>
+		<td>12</td>
+		<td class="aisle"></td>
+		<td>13</td>
+		<td>14</td>
+		<td>15</td>
+	</tr>
+ </table>
+<p id="message"></p>
+	<style>
+	<!-- .mainDiv{
+		width:100%;
+		gap:10px;
+		display:flex; 
+	}
+	 -->
+	
+	
+	td{
+		border:2px solid grey;
+		border-collapse:null;
+		border-radius:5px;
+		background-color:grey;
+	}
+	
+	.aisle{
+		background-color:white;
+		border:none;
+		width:10px;
+	}
+	</style>
+	
+	<script>
+let count = 0;
+
+$("td").not(".aisle").click(function(){
+	if($(this).css("background-color")==="rgb(128, 128, 128)"){
+	$(this).css("background-color","green");
+	count++;
+	}else {
+		$(this).css("background-color","grey");
+		count--;
+	}
+
+	$("#message").text("Selected seats: " + count);
+});
+	</script>
+</body>
+</html>
+
+<!-- 
+
+💡 Simpler alternative (even better!):
+
+Instead of checking colors at all, use a class to mark selected seats.
+That way, you don’t depend on how the browser represents colors.
+
+$("td").click(function(){
+    $(this).toggleClass("selected"); // adds or removes a class
+    if($(this).hasClass("selected")){
+        count++;
+    } else {
+        count--;
+    }
+    $("#message").text("Selected seats: " + count);
+});
+
+
+And add this to CSS:
+
+.selected {
+    background-color: green;
+} 
+
+-->

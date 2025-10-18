@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+<head>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"> </script>
+</head>
+<body>
+	
+	<div id="box">
+	<h3>Armstrong number checker</h3>
+		<input type="number" id="num" placeholder="Enter the nuumber">
+		<button id="btn">Check</button>
+	</div>
+	<p id="result"></p>
+	<style>
+		h3{
+			text-align:center;
+			margin-top:30px;
+		}
+		#box{
+			background-color:blue;
+			height:100px;
+			width:300px;
+			border-radius:10px;
+		}
+		
+		input{
+			margin-top:10px;
+			margin-left:30px;
+		}
+		
+		#btn{
+			background-color:green;
+			color:white;
+		}
+	</style>
+	
+	<script>
+	$("#btn").click(function() {
+    let num = $("#num").val(); // get input value
+    let temp = num;
+    let sum = 0;
+    let digits = num.length; // get number of digits directly
+
+    // calculate armstrong sum
+    for (let i = 0; i < digits; i++) {
+      let digit = parseInt(num[i]);
+      sum += Math.pow(digit, digits);
+    }
+
+    // display result
+    if (sum == temp) {
+      $("#result").text(temp + " is an Armstrong number!");
+    } else {
+      $("#result").text(temp + " is NOT an Armstrong number.");
+    }
+  });
+	</script>
+</body>
+</html>
