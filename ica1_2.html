@@ -36,15 +36,19 @@
 	
 	<script>
 	$("#btn").click(function() {
+	
     let num = $("#num").val(); // get input value
     let temp = num;
-    let sum = 0;
-    let digits = num.length; // get number of digits directly
-
+    
+   // let digits = num.length; // get number of digits directly
+if(num.length == 3)
+	{
+	let sum = 0;
+	
     // calculate armstrong sum
-    for (let i = 0; i < digits; i++) {
+    for (let i = 0; i < num.length; i++) {
       let digit = parseInt(num[i]);
-      sum += Math.pow(digit, digits);
+      sum += Math.pow(digit, 3);
     }
 
     // display result
@@ -53,6 +57,10 @@
     } else {
       $("#result").text(temp + " is NOT an Armstrong number.");
     }
+}
+else{
+$("#result").text("Enter a valid 3 digit number");
+}
   });
 	</script>
 </body>
